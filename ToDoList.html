@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>To Do List</title>
+        <meta charset="utf-8">
+        
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <link rel="stylesheet" type="text/css" href="ToDoList.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+       <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">  
+        
+
+    </head>
+    <body>
+     <section class="hero">
+         
+         <center>
+             <div>
+             <center>
+         <div class="form">
+             <form>
+                 <input id="box" type="text" placeholder="Enter The Task Here" name="box">
+                 <input id="btn" type="button" value="Add" onclick="AdToList()">
+             </form>
+         </div>
+        </center>
+         <br>
+         <div class="list">
+            <br>
+            
+             <h3 style="color: yellow;">Tasks Yet To Complete (Click on the task to delete it)<h3>
+                 <br>
+                 
+             <ol id="list_item">
+
+             </ol>
+         </div>
+        
+    </div>
+</center>
+     </section>
+    
+    </body>
+</html>
+<script>
+    function AdToList(){
+       Task= document.getElementById("box").value;
+       if( Task.length==0){
+           alert("Please add a task to list");
+       }
+       else{
+
+           let item =document.getElementById("box");
+          
+           let list_item=document.getElementById("list_item"); 
+           let make_li=document.createElement("li");
+           make_li.appendChild(document.createTextNode(item.value));
+           list_item.appendChild(make_li);
+           item.value=""
+           make_li.onclick=function(){
+               this.parentNode.removeChild(this);
+           }
+
+       }
+
+    }
+</script>
